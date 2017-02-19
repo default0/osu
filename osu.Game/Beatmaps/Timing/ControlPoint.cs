@@ -15,7 +15,34 @@ namespace osu.Game.Beatmaps.Timing
         public double BeatLength;
         public double VelocityAdjustment;
         public bool TimingChange;
-        
+        public Metre Metre;
+    }
+    public struct Metre
+    {
+        /// <summary>
+        /// Number of beats per measure. Ex.: <see cref="Beats"/> = 3, <see cref="Measure"/> = 4, then the metre is 3/4.
+        /// </summary>
+        public int Beats { get; private set; }
+        /// <summary>
+        /// Notes of the measure. Ex.: <see cref="Beats"/> = 3, <see cref="Measure"/> = 4, then the metre is 3/4.
+        /// </summary>
+        public int Measure { get; private set; }
+
+        public Metre(int beats)
+            : this(beats, 4)
+        {
+        }
+
+        public Metre(int beats, int measure)
+        {
+            Beats = beats;
+            Measure = measure;
+        }
+
+        public override string ToString()
+        {
+            return $"{Beats}/{Measure} Metre";
+        }
     }
 
     internal enum TimeSignatures

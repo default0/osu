@@ -21,7 +21,7 @@ using osu.Framework.MathUtils;
 
 namespace osu.Game.Screens.Select
 {
-    class CarouselContainer : ScrollContainer, IEnumerable<BeatmapGroup>
+    public class CarouselContainer : ScrollContainer, IEnumerable<BeatmapGroup>
     {
         private Container<Panel> scrollableContent;
         private List<BeatmapGroup> groups = new List<BeatmapGroup>();

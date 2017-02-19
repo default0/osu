@@ -201,6 +201,8 @@ namespace osu.Game.Beatmaps.Formats
             if (split.Length > 2)
             {
                 int kiaiFlags = split.Length > 7 ? Convert.ToInt32(split[7], NumberFormatInfo.InvariantInfo) : 0;
+                int beatsPerMeasure = int.Parse(split[2], NumberFormatInfo.InvariantInfo);
+                int measureValue = split.Length > 8 ? int.Parse(split[8], NumberFormatInfo.InvariantInfo) : 4;
                 double beatLength = double.Parse(split[1].Trim(), NumberFormatInfo.InvariantInfo);
                 cp = new ControlPoint
                 {
@@ -208,6 +210,7 @@ namespace osu.Game.Beatmaps.Formats
                     BeatLength = beatLength > 0 ? beatLength : 0,
                     VelocityAdjustment = beatLength < 0 ? -beatLength / 100.0 : 1,
                     TimingChange = split.Length <= 6 || split[6][0] == '1',
+                    Metre = new Metre(beatsPerMeasure, measureValue)
                 };
             }
 

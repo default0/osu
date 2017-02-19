@@ -12,7 +12,7 @@ using osu.Game.Graphics;
 
 namespace osu.Game.Beatmaps.Drawables
 {
-    class Panel : Container, IStateful<PanelSelectedState>
+    public class Panel : Container, IStateful<PanelSelectedState>
     {
         public const float MAX_HEIGHT = 80;
 
@@ -116,7 +116,7 @@ namespace osu.Game.Beatmaps.Drawables
         }
     }
 
-    enum PanelSelectedState
+    public enum PanelSelectedState
     {
         Hidden,
         NotSelected,
